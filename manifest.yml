@@ -1,0 +1,26 @@
+modules:
+  jira:issuePanel:
+    - key: forge-app-new-hello-world-issue-panel
+      resource: main
+      resolver:
+        function: resolver
+      render: native
+      title: Weather Realtime
+      icon: https://upload.wikimedia.org/wikipedia/commons/9/91/Weather-more-clouds.svg
+  function:
+    - key: resolver
+      handler: index.handler
+resources:
+  - key: main
+    path: src/frontend/index.jsx
+app:
+  id: ari:cloud:ecosystem::app/180bee2d-0f9a-4bd9-b6b0-3a7368a05e7b
+permissions:
+  scopes:
+    - read:jira-work
+  external:
+    fetch:
+      backend:
+        - 'https://api.weatherapi.com/v1/*'
+    images:
+      - 'https://cdn.weatherapi.com/weather/*'
